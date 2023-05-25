@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+:root {
+	--blue: #4aaaf4;
+	--white: #ffffff;
+	--background: #e6eff6;
+	--shadow: #c9c9c9;
+	--txt-h1: #5d6476;
+	--txt-p: #bababa;
+}
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+body {
+	width: 100vw;
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 60vh 60vh;
+	grid-gap: 2.5em;
+	background: var(--background);
+	padding: 3em;
+}
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 4em;
+	padding: 2em 3em 1em 3em;
+	background: var(--white);
+	border-radius: 5px;
+	box-shadow: 0px 0px 1em var(--shadow);
+	transition: all .2s ease;
+}
+section img {
+	width: 5em;
+}
+section h1 {
+	color: var(--txt-h1);
+}
+section p {
+	color: var(--txt-p);
+}
+section a {
+	text-decoration: none;
+	color: var(--txt-h1);
+	font-weight: 500;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1em 2em;
+	border-radius: 50px;
+	transition: all .3s ease;
+}
+section a::before {
+	content: "";
+	width: 80%;
+	height: 2px;
+	background: var(--txt-p);
+	position: absolute;
+	top: -1.5em;
+	transition: all .3s ease;
+}
+section:has(> a:hover) {
+	box-shadow: 0 0 3em var(--shadow);
+}
+section a:hover {
+	background: var(--blue);
+	color: var(--white);
+	box-shadow: 0 0 1em var(--shadow);
+}
+section a:hover::before {
+	opacity: 0;
+}
