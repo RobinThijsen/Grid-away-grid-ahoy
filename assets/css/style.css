@@ -18,7 +18,7 @@ body {
 	width: 100vw;
 	min-height: 100vh;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 	grid-template-rows: 60vh 60vh;
 	grid-gap: 2.5em;
 	background: var(--background);
