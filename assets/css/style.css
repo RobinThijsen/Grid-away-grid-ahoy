@@ -2,7 +2,7 @@
 :root {
 	--blue: #4aaaf4;
 	--white: #ffffff;
-	--hover: #f1f1f1;
+	--hover: #fafafa;
 	--background: #e6eff6;
 	--shadow: #c9c9c9;
 	--txt-h1: #5d6476;
@@ -21,11 +21,12 @@ html {
 body {
 	width: 100vw;
 	min-height: 100vh;
-	display: grid;
-	grid-template-columns: 0.05fr 1fr;
-	transition: all .5s ease;
+	display: flex;
+	justify-content: flex-end;
 }
 aside {
+	width: 100px;
+	height: 100%;
 	background: var(--white);
 	box-shadow: 0px 0px 2em var(--shadow);
 	display: flex;
@@ -33,7 +34,10 @@ aside {
 	align-items: center;
 	justify-content: flex-start;
 	padding: 2em 0;
-	position: relative;
+	position: absolute;
+	transition: all .5s ease;
+	top: 0;
+	left: 0;
 	z-index: 20;
 }
 input {
@@ -48,13 +52,16 @@ input {
 	cursor: pointer;
 	border-radius: 100px;
 	transition: all .4s ease;
+	position: absolute;
+	top: 2.5em;
+	left: 2.5em;
+	z-index: 30;
 }
 input::after {
 	font-family: "Font Awesome 5 Free";
 	content: "\f061";
 	font-size: 2em;
 	color: var(--blue);
-	width: 1em;
 	apsect-ratio: 1/1;
 	transition: all .4s ease-in-out;
 }
@@ -64,10 +71,10 @@ input:hover {
 input:checked::after {
 	transform: rotate(180deg);
 }
-body:has(> aside input:checked) {
-	grid-template-columns: 0.2fr 1fr;
+input:checked~aside {
+	width: 350px;
 }
-input:checked~ul {
+input:checked~aside ul {
 	opacity: 1;
 }
 aside ul {
@@ -91,21 +98,25 @@ aside li {
 	justify-content: center;
 }
 aside a {
-	width: 100%;
-	height: 100%;
+	width: 50%;
+	height: 50%;
 	text-decoration: none;
 	text-transform: uppercase;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: var(--blue);
-	padding: 1em;
 	transition: all .3s ease;
+	border-radius: 100px;
 }
 aside a:hover {
+	width: 100%;
+	height: 100%;
 	background: var(--hover);
+	border-radius: 0;
 }
 main {
+	width: calc(100vw - 100px);
 	min-height: 100vh;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
@@ -158,10 +169,10 @@ section a::before {
 	top: -1.5em;
 	transition: all .3s ease;
 }
+
 /*
 ===============================
 Cette partie du code ne fonctionne pas sur tout les navigateurs (FireFox, IE, ...)
-
 */
 section:has(> a:hover) {
 	box-shadow: 0 0 3em var(--shadow);
@@ -169,6 +180,7 @@ section:has(> a:hover) {
 /*
 ===============================
 */
+
 section a:hover {
 	background: var(--blue);
 	color: var(--white);
@@ -176,10 +188,4 @@ section a:hover {
 }
 section a:hover::before {
 	opacity: 0;
-}
-
-@media screen and (max-width:1200px) {
-	body:has(> aside input:checked) {
-		grid-template-columns: 0.6fr 1fr;
-	}
 }
