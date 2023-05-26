@@ -46,27 +46,28 @@ input {
 	-webkit-appearance: none;
 	width: 4em;
 	aspect-ratio: 1/1;
+	border-radius: 100px;
+	transition: all .4s ease;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	cursor: pointer;
-	border-radius: 100px;
-	transition: all .4s ease;
+	z-index: 30;
 	position: absolute;
 	top: 2.5em;
 	left: 2.5em;
-	z-index: 30;
-}
-input::after {
-	font-family: "Font Awesome 5 Free";
-	content: "\f061";
-	font-size: 2em;
-	color: var(--blue);
-	apsect-ratio: 1/1;
-	transition: all .4s ease-in-out;
+	cursor: pointer;
 }
 input:hover {
 	background: var(--hover);
+}
+input::after {
+	font-family: "Font Awesome 6 Free";
+	font-weight: 700;
+	content:"\f061";
+	font-size: 2em;
+	color: var(--blue);
+	transition: all .4s ease-in-out;
+	position: absolute;
 }
 input:checked::after {
 	transform: rotate(180deg);
