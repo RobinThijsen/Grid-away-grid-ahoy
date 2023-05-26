@@ -56,13 +56,13 @@ input::after {
 	color: var(--blue);
 	width: 1em;
 	apsect-ratio: 1/1;
+	transition: all .4s ease-in-out;
 }
 input:hover {
 	background: var(--hover);
 }
 input:checked::after {
-	transform: rotate(540deg);
-	transition: all .5s ease-in-out;
+	transform: rotate(180deg);
 }
 body:has(> aside input:checked) {
 	grid-template-columns: 0.2fr 1fr;
