@@ -56,8 +56,8 @@ input {
 	justify-content: center;
 	z-index: 30;
 	position: fixed;
-	top: 6.7em;
-	left: 6.7em;
+	top: 48vh;
+	left: 75px;
 	cursor: pointer;
 }
 input:hover {
@@ -71,6 +71,9 @@ input::after {
 	color: var(--blue);
 	transition: all .4s ease-in-out;
 	position: absolute;
+}
+input:checked {
+	left: 65px;
 }
 input:checked::after {
 	transform: rotate(180deg);
